@@ -1,11 +1,5 @@
-# src/rag/retriever.py
-# This file is part of the 2FAS iOS app
-# This module implements a simple retriever for a Retrieval-Augmented Generation (RAG) system.
-# It loads documents from a local knowledge base directory, tokenizes them,
-# and retrieves relevant context based on a query using a basic keyword matching
-# approach. The retrieved context
-# can then be used to augment prompts sent to a large language model (LLM) 
-# for generating informed responses.
+# src/rag/retriever.py — NeuroOps Insight Engine
+# Keyword-based RAG retriever: loads knowledge base docs and scores them against queries.
 
 from pathlib import Path
 import re

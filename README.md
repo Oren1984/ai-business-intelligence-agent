@@ -1,139 +1,145 @@
-# AI Business Intelligence Platform
+# NeuroOps Insight Engine
 
-An AI-powered business intelligence platform that combines structured analytics, SQL-style questioning, LLM-generated explanations, retrieval-augmented context, executive summaries, and demo-ready automation through n8n.
+AI-powered business intelligence platform for operational insights, decision support, and automated business workflows.
 
-The platform is designed to help analyze product usage, detect inactive users, identify repeated system issues, and generate business-facing insights in a clear and interactive way.
+The NeuroOps Insight Engine combines structured analytics, SQL-style querying, LLM-generated explanations, retrieval-augmented context (RAG), executive summaries, and automation via n8n — all in a unified, demo-ready system.
 
 ---
 
 ## Core Capabilities
 
-- Structured business analytics over product and system activity
-- SQL-style business question answering
-- LLM-based explanations in demo, OpenAI, or Ollama mode
-- Retrieval-Augmented Generation (RAG) using a local knowledge base
-- Executive summary generation for business stakeholders
-- Demo automation handoff through n8n
-- Interactive Streamlit dashboard for exploration and monitoring
+- Structured business analytics over product and system activity  
+- SQL-style business question answering  
+- LLM-powered explanations (Demo / OpenAI / Ollama modes)  
+- Retrieval-Augmented Generation (RAG) using local knowledge base  
+- Executive summary generation for business stakeholders  
+- Automation handoff via n8n workflows  
+- Interactive Streamlit dashboard for exploration and monitoring  
 
 ---
 
 ## Project Components
 
-This project combines:
+This system integrates:
 
-- structured business analytics
-- SQL-style question answering
-- LLM explanations
-- retrieval-augmented context
-- executive summary generation
-- demo automation handoff to n8n
+- Business analytics engine  
+- SQL-style reasoning agent  
+- LLM abstraction layer  
+- Retrieval (RAG) engine  
+- Executive summary generator  
+- Automation layer (n8n integration)  
+- Streamlit UI  
 
 ---
 
 ## Project Structure
 
 ```text
-ai-business-intelligence-agent/
+neuroops-insight-engine/
 │
 ├── data/                # Business datasets + RAG knowledge base
-├── src/                 # Application source code
+├── src/
 │   ├── agent/           # SQL-style BI agent
 │   ├── analytics/       # Metrics, insights, summaries
 │   ├── dashboard/       # Streamlit UI
-│   ├── llm/             # LLM provider layer
+│   ├── llm/             # LLM provider abstraction
 │   ├── rag/             # Retrieval system
 │   └── integrations/    # n8n automation integration
 │
-├── docker/              # Docker build + compose setup
-├── n8n/                 # Demo workflow automation
+├── docker/              # Docker setup
+├── n8n/                 # Automation workflows
 │
-├── main.py              # CLI execution entrypoint
-├── requirements.txt     # Python dependencies
-├── .env.example         # Environment template
+├── main.py              # CLI entrypoint
+├── requirements.txt
+├── .env.example
 └── README.md
 ```
 
 ---
 
-## Main Data Sources
+## Data Sources
 
-The platform works with four main business datasets:
+The system operates on four main business datasets:
 
-- `users.csv`
-- `usage_events.csv`
-- `system_events.csv`
-- `tickets.csv`
+- users.csv
+- usage_events.csv
+- system_events.csv
+- tickets.csv
 
-These datasets are loaded into SQLite and used by the analytics engine, SQL agent, dashboard, and summary generation flows.
+These are loaded into SQLite and power the analytics, agent reasoning, and summary layers.
 
----
+## UI Sections
 
-## Main UI Sections
 ### Overview
 
-Displays business KPIs, analytics tables, feature usage, error distribution, support data, and activity trends.
+Business KPIs, usage trends, system errors, and support data.
 
 ### LLM Agent
 
-Allows the user to ask business questions and receive:
+Ask business questions and receive:
 
-- SQL-style query logic
-
-- result tables
-
-- natural-language explanation
-
-### RAG
-
-Uses local business documents as retrieval context for richer AI answers.
+- SQL-style reasoning
+- Data results
+- Natural-language explanations
+- RAG
+- Enrich answers with internal business knowledge
 
 ### Automation
 
-Builds and previews outgoing automation payloads and supports demo handoff to n8n workflows.
+Generate structured payloads and simulate automation workflows via n8n.
 
 ### Executive Summary
 
-Generates a concise business-level summary of current activity, risks, and recommended next steps.
+High-level business insights, risks, and recommendations.
 
 ---
 
 ## Architecture Overview
 
-The platform includes the following layers:
+The platform consists of:
 
-- data ingestion from CSV sources
+- CSV data ingestion
 
 - SQLite business data layer
 
-- analytics and insight generation
+- Analytics + insights engine
 
-- SQL-style agent logic
+- SQL-style reasoning agent
 
-- LLM provider layer
+- LLM provider abstraction
 
-- RAG retrieval layer
+- RAG retrieval system
 
-- executive summary generation
+- Executive summary generator
 
-- n8n demo automation integration
+- Automation layer (n8n)
 
-- Streamlit user interface
+- Streamlit UI
 
 ---
 
 ## Run Locally
+
 ```bash
+# Windows
 python -m venv .venv
 .venv\Scripts\activate
+
+# macOS / Linux
+python -m venv .venv
+source .venv/bin/activate
+
 pip install -r requirements.txt
+copy .env.example .env   # Windows
+cp .env.example .env     # macOS/Linux
+
 python main.py
 streamlit run src/dashboard/dashboard.py
 ```
 
 ---
 
-## Run with Docker:
+## Run with Docker
 
 ```bash
 docker compose -f docker/docker-compose.yml up --build
@@ -141,16 +147,16 @@ docker compose -f docker/docker-compose.yml up --build
 
 ---
 
-## Environment Configuration:
-Copy .env.example to .env and configure the environment as needed.
+## Environment Configuration
 
 ```bash
-copy .env.example .env
--- Then edit .env to set your configuration
+copy .env.example .env   # Windows
+cp .env.example .env     # macOS/Linux
 ```
 
-### Main variables:
+### Key Variables
 
+```bash
 LLM_PROVIDER=demo|openai|ollama
 LLM_MODEL=...
 OPENAI_API_KEY=...
@@ -158,41 +164,39 @@ OPENAI_BASE_URL=https://api.openai.com/v1
 OLLAMA_BASE_URL=http://localhost:11434
 N8N_ENABLED=true|false
 N8N_WEBHOOK_URL=http://localhost:5678/webhook/ai-bi-summary
+```
 
 ---
 
 ## LLM Modes
 
-The platform supports three LLM modes:
-
 ### Demo
 
-Runs without any external API or local model dependency.
+No external dependencies — fully local.
 
 ### OpenAI
 
-Uses the configured OpenAI API key and model.
+Uses the OpenAI Responses API. Requires `OPENAI_API_KEY`.
 
 ### Ollama
 
-Uses a local Ollama model endpoint for fully local experimentation.
+Runs locally via Ollama.
 
 ---
 
 ## n8n Integration
 
-The automation layer is designed in demo-first mode.
+- Demo-first automation design
 
-By default:
+- Payload generation inside UI
 
-- automation payloads are generated inside the UI
+- Optional webhook activation
 
-- no live webhook is required
+Example workflow:
 
-- n8n can be connected later when needed
-
-A demo workflow is included in:
-  n8n/demo_bi_webhook_workflow.json
+```bash
+n8n/demo_bi_webhook_workflow.json
+```
 
 ---
 
@@ -202,44 +206,43 @@ A demo workflow is included in:
 
 - Which users are inactive?
 
-- Which errors appear most often?
+- Which errors occur most frequently?
 
 - How many open tickets exist?
 
-- What business risks should we care about right now?
+- What risks should we address right now?
 
 ---
 
 ## Docker Services
 
-The Docker setup includes:
-
-- the AI Business Intelligence application
-
-- the n8n automation service
-
-After startup:
-
-- Streamlit UI: http://localhost:8501
-
-- n8n UI: http://localhost:5678
+| Service | Description | Port |
+|---------|-------------|------|
+| `insight-engine` | Streamlit BI dashboard | http://localhost:8501 |
+| `n8n` | Automation workflow engine | http://localhost:5678 |
 
 ---
 
 ## Notes
 
-- The project is designed as a focused personal AI portfolio project
+- Local-first architecture
 
-- Demo mode works without external API keys
+- Demo-ready without external APIs
 
-- SQLite is rebuilt from CSV data during startup for a simple and stable demo workflow
+- Lightweight infrastructure (SQLite + Streamlit)
 
-- The architecture is intentionally lightweight and avoids unnecessary infrastructure overhead
+- Focused on clarity, explainability, and usability
 
 ---
 
 ## Summary
 
-The AI Business Intelligence Platform demonstrates how analytics, AI reasoning, RAG, executive summaries, and workflow automation can be combined into one business-facing application with a clean local-first architecture.
+NeuroOps Insight Engine demonstrates how modern business intelligence can evolve into an AI-driven decision platform by combining analytics, reasoning, retrieval, and automation into a single cohesive system.
+
+---
+
+## License
+
+MIT (see LICENSE)
 
 ---

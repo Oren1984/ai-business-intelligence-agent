@@ -1,10 +1,5 @@
-# src/agent/agent.py
-# This file is part of the 2FAS iOS app
-# This module defines the BusinessIntelligenceAgent class, which serves as an interface 
-# for answering business intelligence questions by executing SQL queries 
-# against the app's data. The agent can respond to questions about feature usage, 
-# user activity, error frequencies, and support tickets by generating appropriate SQL queries 
-# and providing explanations of the results.
+# src/agent/agent.py — NeuroOps Insight Engine
+# SQL-style BI agent: routes natural language questions to SQL queries with explanations.
 
 import pandas as pd
 from src.data_loader.loader import get_connection

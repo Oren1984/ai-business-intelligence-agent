@@ -1,7 +1,10 @@
-# main.py - Entry point for the AI Business Intelligence Platform
-# This script initializes the platform, runs core analytics,
-# generates insights, and demonstrates the
-# capabilities of the agent and RAG components.
+# main.py — NeuroOps Insight Engine
+# CLI entry point. Initializes the platform, runs core analytics,
+# and demonstrates all AI layers: agent, RAG, LLM, executive summary, n8n.
+
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 from src.data_loader.loader import init_sqlite
 from src.analytics.analytics import (
@@ -21,7 +24,7 @@ from src.integrations.n8n_client import build_n8n_payload
 
 def main():
     print("=" * 80)
-    print("AI BUSINESS INTELLIGENCE PLATFORM")
+    print("NEUROOPS INSIGHT ENGINE")
     print("=" * 80)
 
     init_sqlite()

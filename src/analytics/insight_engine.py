@@ -1,8 +1,5 @@
-# src/analytics/insight_engine.py
-# This file is part of the 2FAS iOS app
-# This module defines the generate_insights function, 
-# which compiles key business intelligence metrics
-# into a list of insights that can be used for reporting and decision-making.
+# src/analytics/insight_engine.py — NeuroOps Insight Engine
+# Rule-based insight generation from key business metrics.
 
 from src.analytics.analytics import (
     feature_usage_stats,

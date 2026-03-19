@@ -1,6 +1,5 @@
-# src/utils/config.py
-# This file is part of the 2FAS iOS app
-# This module defines configuration constants and paths used across the application.
+# src/utils/config.py — NeuroOps Insight Engine
+# Configuration constants: base paths and CSV/DB file locations.
 
 from pathlib import Path
 

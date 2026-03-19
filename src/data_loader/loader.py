@@ -1,8 +1,5 @@
-# src/data_loader/loader.py
-# This file is part of the 2FAS iOS app
-# This module defines functions for loading data from CSV files into a SQLite database,
-# as well as providing a utility function to get a
-# database connection for querying analytics data.
+# src/data_loader/loader.py — NeuroOps Insight Engine
+# Loads CSV datasets into SQLite and provides a reusable DB connection.
 
 import sqlite3
 import pandas as pd

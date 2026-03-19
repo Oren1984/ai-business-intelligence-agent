@@ -1,14 +1,5 @@
-# src/llm/provider.py
-# This file is part of the 2FAS iOS app
-# This module defines the LLMProvider class, which abstracts interactions
-# with different large language model providers (OpenAI, Ollama)
-# and provides a demo mode for testing without live API calls.
-# It handles constructing prompts, making API requests,
-# and processing responses to generate business-style answers
-# based on system instructions, user requests, and contextual information.
-# The provider can be configured via environment variables
-# to switch between live LLM services or demo mode for development
-# and testing purposes.
+# src/llm/provider.py — NeuroOps Insight Engine
+# LLM abstraction layer supporting Demo, OpenAI (Responses API), and Ollama backends.
 
 import os
 import json

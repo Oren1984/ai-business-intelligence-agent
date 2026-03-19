@@ -1,19 +1,15 @@
 # docker/docker-compose.yml
-# This docker-compose file defines two services:
-# 1. ai-business-intelligence-agent: This is the main application built from the Dockerfile in the parent directory. 
-# It exposes port 8501 and mounts the data directory for persistent storage. 
-# It also uses environment variables from the .env file in the parent directory.
-
-# 2. n8n: This is an automation tool that simulates outgoing automation. 
-# It exposes port 5678 and uses a named volume for persistent storage of its data. 
-# It is configured to restart unless stopped.
+# NeuroOps Insight Engine — Docker Compose
+#
+# Services:
+#   insight-engine : Streamlit AI BI dashboard (port 8501)
+#   n8n            : Automation workflow engine (port 5678)
 
 services:
-  ai-business-intelligence-agent:
+  insight-engine:
     build:
       context: ..
       dockerfile: docker/Dockerfile
-    container_name: ai-business-intelligence-agent
     ports:
       - "8501:8501"
     volumes:
@@ -24,11 +20,10 @@ services:
 
   n8n:
     image: n8nio/n8n:latest
-    container_name: ai-bi-n8n
     ports:
       - "5678:5678"
     environment:
-      - N8N_HOST=localhost
+      - N8N_HOST=0.0.0.0
       - N8N_PORT=5678
       - N8N_PROTOCOL=http
     volumes:

@@ -1,8 +1,5 @@
-# src/analytics/analytics.py
-# This file is part of the 2FAS iOS app
-# This module contains functions to perform various analytics on the app's data, 
-# such as feature usage statistics, user activity metrics, 
-# error frequencies, and support ticket summaries.
+# src/analytics/analytics.py — NeuroOps Insight Engine
+# Core analytics functions: feature usage, user activity, errors, tickets, trends.
 
 import pandas as pd
 from datetime import timedelta

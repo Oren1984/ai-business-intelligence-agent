@@ -1,7 +1,5 @@
-# src/analytics/auto_insights.py
-# This file is part of the 2FAS iOS app
-# This module defines the build_auto_insights function, which generates a list of
-# insights based on various analytics metrics.
+# src/analytics/auto_insights.py — NeuroOps Insight Engine
+# Severity-tagged auto-insights derived from analytics metrics.
 
 from src.analytics.analytics import (
     feature_usage_stats,
